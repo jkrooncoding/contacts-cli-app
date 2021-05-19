@@ -7,11 +7,9 @@ type option struct {
 	function    func()
 }
 
-var addContact option = option{
+var add option = option{
 	description: "Add a contact",
-	function: func() {
-		fmt.Println("Adding fake contact")
-	},
+	function:    AddContact,
 }
 
 var placeHolder option = option{

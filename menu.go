@@ -6,7 +6,7 @@ import (
 )
 
 var menuItems map[string]option = map[string]option{
-	"1": addContact,
+	"1": add,
 	"2": placeHolder,
 	"3": placeHolder,
 	"4": placeHolder,

@@ -1,12 +1,14 @@
 package main
 
 import (
+	"fmt"
 	"log"
 )
 
 var contacts []contact
 
 func main() {
+	fmt.Println("Welcome to GoContacts v0.1")
 	menu()
 	userChoice, err := getInput()
 	if err != nil {
@@ -17,5 +19,5 @@ func main() {
 }
 
 func runOption(o option) {
-	switch 
+	o.function()
 }

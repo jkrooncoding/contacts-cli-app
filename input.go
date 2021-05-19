@@ -10,7 +10,7 @@ func getInput() (string, error) {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
 
-	_, err := validateInput(scanner.Text())
+	err := validateMenuInput(scanner.Text())
 	if err != nil {
 		return "", err
 	}
@@ -18,10 +18,10 @@ func getInput() (string, error) {
 	return scanner.Text(), nil
 }
 
-func validateInput(input string) (string, error) {
+func validateMenuInput(input string) error {
 	if menuItems[input].description != "" {
-		return menuItems[input].description, nil
+		return nil
 	} else {
-		return "", errors.New("input is invalid")
+		return errors.New("input is invalid")
 	}
 }
