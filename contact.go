@@ -5,11 +5,4 @@ type contact struct {
 	lastName     string
 	emailAddress string
 	phoneNumber  string
-	socials      social
-}
-
-type social struct {
-	fb string
-	tw string
-	ig string
 }

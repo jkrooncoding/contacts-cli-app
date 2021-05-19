@@ -10,7 +10,7 @@ import (
 func main() {
 	fmt.Println("Welcome to GoContacts v0.1")
 	menu()
-	userChoice, err := getInput()
+	userChoice, err := getValidationInput(InputTypeMenuItem)
 	if err != nil {
 		log.Fatal(err)
 	}

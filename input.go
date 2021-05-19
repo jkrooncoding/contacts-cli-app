@@ -6,11 +6,18 @@ import (
 	"os"
 )
 
-func getInput() (string, error) {
+func getInput() string {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
 
-	err := validateMenuInput(scanner.Text())
+	return scanner.Text()
+}
+
+func getValidationInput(inputType InputType) (string, error) {
+	scanner := bufio.NewScanner(os.Stdin)
+	scanner.Scan()
+
+	err := validateInput(scanner.Text(), inputType)
 	if err != nil {
 		return "", err
 	}
@@ -18,10 +25,15 @@ func getInput() (string, error) {
 	return scanner.Text(), nil
 }
 
-func validateMenuInput(input string) error {
-	if menuItems[input].description != "" {
-		return nil
-	} else {
-		return errors.New("input is invalid")
+func validateInput(input string, inputType InputType) error {
+	switch inputType {
+	case InputTypeMenuItem:
+		if menuItems[input].description != "" {
+			return nil
+		} else {
+			return errors.New("input is invalid")
+		}
+	default:
+		return errors.New("no switch case matched")
 	}
 }
