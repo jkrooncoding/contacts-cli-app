@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-var contacts []contact
+// var contacts []contact
 
 func main() {
 	fmt.Println("Welcome to GoContacts v0.1")

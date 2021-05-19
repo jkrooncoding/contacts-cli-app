@@ -25,7 +25,7 @@ func menu() {
 
 func sortMenuItems(menuItems map[string]option) []string {
 	keys := make([]string, 0)
-	for k, _ := range menuItems {
+	for k := range menuItems {
 		keys = append(keys, k)
 	}
 	sort.Strings(keys)
