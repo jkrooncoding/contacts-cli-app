@@ -10,8 +10,6 @@ var menuItems map[string]option = map[string]option{
 	"2": placeHolder,
 	"3": view,
 	"4": placeHolder,
-	"5": placeHolder,
-	"6": placeHolder,
 }
 
 // menu prints out the program's main menu and all the possible
@@ -21,7 +19,7 @@ func menu() {
 	for _, k := range sortedMenuItems {
 		fmt.Printf("%s. %s\n", k, menuItems[k].description)
 	}
-	fmt.Println("Or enter 'q' to exit the program.")
+	fmt.Println("\nOr enter 'q' to exit the program.")
 
 	fmt.Print("Your option: ")
 }

@@ -31,45 +31,13 @@ func AddContact() {
 }
 
 func ViewContact() {
-	var contactFirstName, contactLastName string
-	fmt.Print("Please enter contact's name: ")
+	fmt.Println("Enter a full name to search for a specific contact")
+	fmt.Println("or enter a last name to search for matches")
+	fmt.Print("Please enter searchterm: ")
 	contactName := getInput()
-	if len(strings.Split(contactName, " ")) > 1 {
-		contactFirstName = strings.Split(contactName, " ")[0]
-		contactLastName = strings.Split(contactName, " ")[1]
-
-		for _, c := range contacts {
-			if c.FirstName == contactFirstName && c.LastName == contactLastName {
-				printContact(c)
-				if getInput() == "" {
-					return
-				}
-			} else {
-				continue
-			}
-		}
+	if len(strings.Split(contactName, " ")) == 2 {
+		searchSpecificContact(contactName)
 	} else {
-		matches := []contact{}
-
-		for _, c := range contacts {
-			if c.FirstName == contactName {
-				matches = append(matches, c)
-			}
-		}
-
-		if len(matches) == 0 {
-			fmt.Println("No contact found. Please check your spelling.")
-			if getInput() == "" {
-				return
-			}
-		}
-
-		fmt.Println("These contacts match your search")
-		fmt.Println("")
-		for _, c := range matches {
-			printContact(c)
-			fmt.Println()
-		}
-		getInput()
+		searchByLastName(contactName)
 	}
 }

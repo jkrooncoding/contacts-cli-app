@@ -34,7 +34,7 @@ func validateInput(input string, inputType InputType) error {
 		} else if menuItems[input].description != "" {
 			return nil
 		} else {
-			return errors.New("input is invalid")
+			return errors.New("invalid menu item")
 		}
 	default:
 		return errors.New("no switch case matched")

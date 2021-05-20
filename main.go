@@ -1,8 +1,20 @@
 package main
 
 import (
-	"log"
+	"fmt"
+	"strings"
 )
+
+const version string = "0.2"
+
+var ascititle string = `
+ _____          _____             _             _       
+/ ____|        / ____|           | |           | |      
+| |  __  ___   | |     ___  _ __ | |_ __ _  ___| |_ ___ 
+| | |_ |/ _ \  | |    / _ \| '_ \| __/ _' |/ __| __/ __|
+| |__| | (_) | | |___| (_) | | | | || (_| | (__| |_\__ \
+\_____ |\___/   \_____\___/|_| |_|\__\__,_|\___|\__|___/
+`
 
 var contacts []contact
 var quit bool = false
@@ -15,10 +27,15 @@ func main() {
 		menu()
 		userChoice, err := getValidationInput(InputTypeMenuItem)
 		if err != nil {
-			log.Fatal(err)
+			errorString := err.Error()
+			fmt.Println()
+			fmt.Println(strings.Title(errorString))
+			fmt.Println("Press enter to try again.")
+			getInput()
+		} else {
+			option := menuItems[userChoice]
+			runOption(option)
 		}
-		option := menuItems[userChoice]
-		runOption(option)
 	}
 }
 
