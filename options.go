@@ -13,7 +13,7 @@ var add option = option{
 }
 
 var view option = option{
-	description: "View a contact's details",
+	description: "View a contact",
 	function:    ViewContact,
 }
 

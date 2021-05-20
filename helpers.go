@@ -28,7 +28,8 @@ func quitProgram() {
 }
 
 func printContact(c contact) {
-	fmt.Println("Name:", c.firstName+" "+c.lastName)
-	fmt.Println("Email:", c.emailAddress)
-	fmt.Println("Phone Number: ", c.phoneNumber)
+	fullName := strings.Join([]string{c.firstName, c.lastName}, " ")
+	fmt.Println("Name:\t", strings.Title(fullName))
+	fmt.Println("Email:\t", c.emailAddress)
+	fmt.Println("Phone:\t", c.phoneNumber)
 }

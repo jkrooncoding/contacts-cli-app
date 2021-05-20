@@ -19,8 +19,8 @@ func AddContact() {
 	phoneNumber := getInput()
 
 	newContact := contact{
-		firstName:    firstName,
-		lastName:     lastName,
+		firstName:    strings.ToLower(firstName),
+		lastName:     strings.ToLower(lastName),
 		emailAddress: email,
 		phoneNumber:  phoneNumber,
 	}
