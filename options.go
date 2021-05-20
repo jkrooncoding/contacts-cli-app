@@ -7,12 +7,12 @@ type option struct {
 	function    func()
 }
 
-var add option = option{
+var add = option{
 	description: "Add a contact",
 	function:    AddContact,
 }
 
-var view option = option{
+var view = option{
 	description: "View a contact",
 	function:    ViewContact,
 }
