@@ -44,11 +44,7 @@ func printContact(c contact) {
 }
 
 func saveToFile() {
-	fmt.Println("This is contacts:", contacts)
-	getInput()
 	file, _ := json.MarshalIndent(contacts, "", " ")
-	fmt.Println("This is file:", file)
-	getInput()
 	err := os.WriteFile("contacts.json", file, 0666)
 	if err != nil {
 		fmt.Println("Error:", err)
