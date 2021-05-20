@@ -17,5 +17,14 @@ func AddContact() {
 	fmt.Print("Please enter phone number: ")
 	phoneNumber := getInput()
 
-	fmt.Println(firstName, lastName)
+	newContact := contact{
+		firstName:    firstName,
+		lastName:     lastName,
+		emailAddress: email,
+		phoneNumber:  phoneNumber,
+	}
+
+	contacts = append(contacts, newContact)
+
+	fmt.Println(contacts)
 }

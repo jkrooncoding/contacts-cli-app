@@ -3,12 +3,15 @@ package main
 import (
 	"fmt"
 	"log"
+	"strings"
+
+	"github.com/inancgumus/screen"
 )
 
-// var contacts []contact
+var contacts []contact
 
 func main() {
-	fmt.Println("Welcome to GoContacts v0.1")
+	printHeader("")
 	menu()
 	userChoice, err := getValidationInput(InputTypeMenuItem)
 	if err != nil {
@@ -19,5 +22,16 @@ func main() {
 }
 
 func runOption(o option) {
+	screen.Clear()
+	screen.MoveTopLeft()
+	printHeader(o.description)
 	o.function()
+}
+
+func printHeader(description string) {
+	fmt.Println("////////////////////////////////")
+	fmt.Println("/////// GO CONTACTS V0.1 ///////")
+	fmt.Println("////////////////////////////////")
+	fmt.Println("\t", strings.ToUpper(description))
+	fmt.Println("")
 }

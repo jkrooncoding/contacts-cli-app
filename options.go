@@ -13,7 +13,7 @@ var add option = option{
 }
 
 var placeHolder option = option{
-	description: "Placeholder option",
+	description: "Placeholder",
 	function: func() {
 		fmt.Println("test")
 	},
