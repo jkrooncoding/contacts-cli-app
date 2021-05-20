@@ -1,25 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"personal/contactscli/models"
+)
 
-type option struct {
-	description string
-	function    func()
+var add = models.Option{
+	Description: "Add a contact",
+	Function:    AddContact,
 }
 
-var add = option{
-	description: "Add a contact",
-	function:    AddContact,
+var view = models.Option{
+	Description: "View a contact",
+	Function:    ViewContact,
 }
 
-var view = option{
-	description: "View a contact",
-	function:    ViewContact,
-}
-
-var placeHolder option = option{
-	description: "Placeholder",
-	function: func() {
+var placeHolder = models.Option{
+	Description: "Placeholder",
+	Function: func() {
 		fmt.Println("test")
 	},
 }

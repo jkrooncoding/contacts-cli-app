@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"personal/contactscli/models"
 	"strings"
 	"time"
 
@@ -36,7 +37,7 @@ func quitProgram() {
 }
 
 // printContact prints a contact's information
-func printContact(c contact) {
+func printContact(c models.Contact) {
 	fullName := strings.Join([]string{c.FirstName, c.LastName}, " ")
 	fmt.Println("Name:\t", strings.Title(fullName))
 	fmt.Println("Email:\t", c.EmailAddress)
@@ -64,8 +65,8 @@ func readContactsFromFile() {
 	}
 }
 
-func searchMatches(search string) []contact {
-	var matches []contact
+func searchMatches(search string) []models.Contact {
+	var matches []models.Contact
 
 	for _, c := range contacts {
 		if c.LastName == search {
@@ -100,7 +101,7 @@ func searchByLastName(name string) {
 }
 
 func searchSpecificContact(name string) {
-	var match contact
+	var match models.Contact
 	contactFirstName := strings.Split(name, " ")[0]
 	contactLastName := strings.Split(name, " ")[1]
 
@@ -118,7 +119,7 @@ func searchSpecificContact(name string) {
 		}
 	}
 
-	if match == (contact{}) {
+	if match == (models.Contact{}) {
 		fmt.Println("No contacts found. Please check your spelling.")
 		getInput()
 		return

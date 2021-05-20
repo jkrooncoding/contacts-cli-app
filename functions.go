@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"personal/contactscli/models"
 	"strings"
 )
 
@@ -18,7 +19,7 @@ func AddContact() {
 	fmt.Print("Please enter phone number: ")
 	phoneNumber := getInput()
 
-	newContact := contact{
+	newContact := models.Contact{
 		FirstName:    strings.ToLower(firstName),
 		LastName:     strings.ToLower(lastName),
 		EmailAddress: email,

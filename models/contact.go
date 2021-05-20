@@ -1,6 +1,6 @@
-package main
+package models
 
-type contact struct {
+type Contact struct {
 	FirstName    string
 	LastName     string
 	EmailAddress string

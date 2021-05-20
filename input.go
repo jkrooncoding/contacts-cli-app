@@ -31,7 +31,7 @@ func validateInput(input string, inputType InputType) error {
 		if input == "q" {
 			quitProgram()
 			return nil
-		} else if menuItems[input].description != "" {
+		} else if menuItems[input].Description != "" {
 			return nil
 		} else {
 			return errors.New("invalid menu item")

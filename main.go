@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"personal/contactscli/models"
 	"strings"
 )
 
@@ -14,7 +15,7 @@ var ascititle string = `
 \_____ |\___/   \_____\___/|_| |_|\__\__,_|\___|\__|___/
 `
 
-var contacts []contact
+var contacts []models.Contact
 var quit bool = false
 
 func main() {
@@ -39,8 +40,8 @@ func main() {
 
 // runOption takes in a option and, clears the screen, prints the header with
 // the option's description and then runs its function
-func runOption(o option) {
+func runOption(o models.Option) {
 	clearScreen()
-	printHeader(o.description)
-	o.function()
+	printHeader(o.Description)
+	o.Function()
 }

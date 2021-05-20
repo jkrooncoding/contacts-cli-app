@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+	"personal/contactscli/models"
 	"sort"
 )
 
-var menuItems map[string]option = map[string]option{
+var menuItems map[string]models.Option = map[string]models.Option{
 	"1": add,
 	"2": placeHolder,
 	"3": view,
@@ -17,7 +18,7 @@ var menuItems map[string]option = map[string]option{
 func printMenu() {
 	sortedMenuItems := sortMenuItems(menuItems)
 	for _, k := range sortedMenuItems {
-		fmt.Printf("%s. %s\n", k, menuItems[k].description)
+		fmt.Printf("%s. %s\n", k, menuItems[k].Description)
 	}
 	fmt.Println("\nOr enter 'q' to exit the program.")
 
@@ -26,7 +27,7 @@ func printMenu() {
 
 // sortMenuItems adds the menuItems map to a slice of strings
 // then sorts the slice and returns it
-func sortMenuItems(menuItems map[string]option) []string {
+func sortMenuItems(menuItems map[string]models.Option) []string {
 	keys := make([]string, 0)
 	for k := range menuItems {
 		keys = append(keys, k)
