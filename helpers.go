@@ -43,9 +43,22 @@ func printContact(c contact) {
 	fmt.Println("Phone:\t", c.PhoneNumber)
 }
 
+// saveToFile saves all contacts to a file called contacts.json
 func saveToFile() {
 	file, _ := json.MarshalIndent(contacts, "", " ")
 	err := os.WriteFile("contacts.json", file, 0666)
+	if err != nil {
+		fmt.Println("Error:", err)
+	}
+}
+
+func readContactsFromFile() {
+	byteContacts, err := os.ReadFile("contacts.json")
+	if err != nil {
+		fmt.Println("Error:", err)
+	}
+
+	err = json.Unmarshal(byteContacts, &contacts)
 	if err != nil {
 		fmt.Println("Error:", err)
 	}

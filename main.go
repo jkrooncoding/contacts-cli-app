@@ -8,6 +8,7 @@ var contacts []contact
 var quit bool = false
 
 func main() {
+	readContactsFromFile()
 	for !quit {
 		clearScreen()
 		printHeader("")
