@@ -14,6 +14,8 @@ var menuItems map[string]option = map[string]option{
 	"6": placeHolder,
 }
 
+// menu prints out the program's main menu and all the possible
+// options a user can enter
 func menu() {
 	sortedMenuItems := sortMenuItems(menuItems)
 	for _, k := range sortedMenuItems {
@@ -24,6 +26,8 @@ func menu() {
 	fmt.Print("Your option: ")
 }
 
+// sortMenuItems adds the menuItems map to a slice of strings
+// then sorts the slice and returns it
 func sortMenuItems(menuItems map[string]option) []string {
 	keys := make([]string, 0)
 	for k := range menuItems {

@@ -19,15 +19,15 @@ func AddContact() {
 	phoneNumber := getInput()
 
 	newContact := contact{
-		firstName:    strings.ToLower(firstName),
-		lastName:     strings.ToLower(lastName),
-		emailAddress: email,
-		phoneNumber:  phoneNumber,
+		FirstName:    strings.ToLower(firstName),
+		LastName:     strings.ToLower(lastName),
+		EmailAddress: email,
+		PhoneNumber:  phoneNumber,
 	}
 
 	contacts = append(contacts, newContact)
 
-	fmt.Println(contacts)
+	saveToFile()
 }
 
 func ViewContact() {
@@ -37,7 +37,7 @@ func ViewContact() {
 	contactLastName := strings.Split(contactName, " ")[1]
 
 	for _, c := range contacts {
-		if c.firstName == contactFirstName && c.lastName == contactLastName {
+		if c.FirstName == contactFirstName && c.LastName == contactLastName {
 			printContact(c)
 			if getInput() == "" {
 				return

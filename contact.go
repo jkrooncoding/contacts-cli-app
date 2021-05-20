@@ -1,8 +1,8 @@
 package main
 
 type contact struct {
-	firstName    string
-	lastName     string
-	emailAddress string
-	phoneNumber  string
+	FirstName    string `json:"FirstName"`
+	LastName     string `json:"LastName"`
+	EmailAddress string `json:"EmailAddress"`
+	PhoneNumber  string `json:"PhoneNumber"`
 }
