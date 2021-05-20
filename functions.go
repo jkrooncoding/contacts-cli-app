@@ -45,10 +45,10 @@ func ViewContact() {
 		} else {
 			continue
 		}
+	}
 
-		fmt.Println("No contact found. Please check your spelling.")
-		if getInput() == "" {
-			return
-		}
+	fmt.Println("No contact found. Please check your spelling.")
+	if getInput() == "" {
+		return
 	}
 }
