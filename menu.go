@@ -14,7 +14,7 @@ var menuItems map[string]option = map[string]option{
 
 // menu prints out the program's main menu and all the possible
 // options a user can enter
-func menu() {
+func printMenu() {
 	sortedMenuItems := sortMenuItems(menuItems)
 	for _, k := range sortedMenuItems {
 		fmt.Printf("%s. %s\n", k, menuItems[k].description)

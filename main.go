@@ -22,7 +22,7 @@ func main() {
 	for !quit {
 		clearScreen()
 		printHeader("")
-		menu()
+		printMenu()
 		userChoice, err := getValidationInput(InputTypeMenuItem)
 		if err != nil {
 			errorString := err.Error()
