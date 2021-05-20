@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func AddContact() {
@@ -27,4 +28,25 @@ func AddContact() {
 	contacts = append(contacts, newContact)
 
 	fmt.Println(contacts)
+}
+
+func ViewContact() {
+	fmt.Print("Please enter contact's name: ")
+	contactName := getInput()
+	contactFirstName := strings.Split(contactName, " ")[0]
+	contactLastName := strings.Split(contactName, " ")[1]
+
+	for _, c := range contacts {
+		if c.firstName == contactFirstName && c.lastName == contactLastName {
+			printContact(c)
+			if getInput() == "" {
+				return
+			}
+		} else {
+			fmt.Println("No contact found. Please check your spelling.")
+			if getInput() == "" {
+				return
+			}
+		}
+	}
 }

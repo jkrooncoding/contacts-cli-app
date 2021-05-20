@@ -8,7 +8,7 @@ import (
 var menuItems map[string]option = map[string]option{
 	"1": add,
 	"2": placeHolder,
-	"3": placeHolder,
+	"3": view,
 	"4": placeHolder,
 	"5": placeHolder,
 	"6": placeHolder,

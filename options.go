@@ -12,6 +12,11 @@ var add option = option{
 	function:    AddContact,
 }
 
+var view option = option{
+	description: "View a contact's details",
+	function:    ViewContact,
+}
+
 var placeHolder option = option{
 	description: "Placeholder",
 	function: func() {

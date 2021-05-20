@@ -26,3 +26,9 @@ func quitProgram() {
 	quit = true
 	os.Exit(0)
 }
+
+func printContact(c contact) {
+	fmt.Println("Name:", c.firstName+" "+c.lastName)
+	fmt.Println("Email:", c.emailAddress)
+	fmt.Println("Phone Number: ", c.phoneNumber)
+}
