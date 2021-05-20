@@ -5,8 +5,6 @@ import (
 	"strings"
 )
 
-const version string = "0.2"
-
 var ascititle string = `
  _____          _____             _             _       
 / ____|        / ____|           | |           | |      
