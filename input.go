@@ -28,7 +28,10 @@ func getValidationInput(inputType InputType) (string, error) {
 func validateInput(input string, inputType InputType) error {
 	switch inputType {
 	case InputTypeMenuItem:
-		if menuItems[input].description != "" {
+		if input == "q" {
+			quitProgram()
+			return nil
+		} else if menuItems[input].description != "" {
 			return nil
 		} else {
 			return errors.New("input is invalid")

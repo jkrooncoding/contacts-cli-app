@@ -19,6 +19,7 @@ func menu() {
 	for _, k := range sortedMenuItems {
 		fmt.Printf("%s. %s\n", k, menuItems[k].description)
 	}
+	fmt.Println("Or enter 'q' to exit the program.")
 
 	fmt.Print("Your option: ")
 }
