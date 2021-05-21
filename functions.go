@@ -7,10 +7,10 @@ import (
 )
 
 func AddContact() {
-	fmt.Print("Please enter your first name: ")
+	fmt.Print("Please enter first name: ")
 	firstName := getInput()
 
-	fmt.Print("Please enter  your second name: ")
+	fmt.Print("Please enter last name: ")
 	lastName := getInput()
 
 	fmt.Print("Please enter email address: ")
