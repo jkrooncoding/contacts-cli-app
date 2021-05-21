@@ -17,7 +17,7 @@ var view = models.Option{
 
 var edit = models.Option{
 	Description: "Edit a contact",
-	Function:    nil,
+	Function:    EditContact,
 }
 
 var delete = models.Option{

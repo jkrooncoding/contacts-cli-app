@@ -9,13 +9,10 @@ import (
 func AddContact() {
 	fmt.Print("Please enter first name: ")
 	firstName := getInput()
-
 	fmt.Print("Please enter last name: ")
 	lastName := getInput()
-
 	fmt.Print("Please enter email address: ")
 	email := getInput()
-
 	fmt.Print("Please enter phone number: ")
 	phoneNumber := getInput()
 
@@ -33,8 +30,7 @@ func AddContact() {
 
 func ViewContact() {
 	fmt.Println("Enter a full name to search for a specific contact")
-	fmt.Println("or enter a last name to search for matches")
-	fmt.Print("Please enter search term: ")
+	fmt.Print("or enter a last name to search for matches: ")
 	contactName := getInput()
 	if len(strings.Split(contactName, " ")) == 2 {
 		searchSpecificContact(contactName, "view")
@@ -44,9 +40,14 @@ func ViewContact() {
 }
 
 func EditContact() {
-	//fmt.Println("Enter the full name of the contact you wish to edit")
-	//fmt.Print("Enter contact's name: ")
-	//contactName := getInput()
+	fmt.Print("Enter the full name of the contact you wish to edit: ")
+	contactName := getInput()
+	if len(strings.Split(contactName, " ")) != 2 {
+		fmt.Println("We only got one name. Editing of contact requires full name.")
+		getInput()
+		return
+	}
+	searchSpecificContact(contactName, "edit")
 }
 
 func DeleteContact() {

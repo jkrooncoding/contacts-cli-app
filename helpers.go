@@ -115,6 +115,8 @@ func searchSpecificContact(name, option string) {
 			switch option {
 			case "view":
 				handleView(match)
+			case "edit":
+				handleEdit(match)
 			case "delete":
 				handleDelete(match)
 			}
@@ -133,17 +135,65 @@ func searchSpecificContact(name, option string) {
 func handleView(c models.Contact) {
 	printContact(c)
 	getInput()
-	return
+}
+
+func handleEdit(c models.Contact) {
+	printContact(c)
+
+	fmt.Println("\nPlease enter new information. Leave blank to use existing value.")
+	fmt.Println()
+	fmt.Print("Please enter first name: ")
+	firstName := getInput()
+	if firstName == "" {
+		firstName = c.FirstName
+	}
+
+	fmt.Print("Please enter last name: ")
+	lastName := getInput()
+	if lastName == "" {
+		lastName = c.LastName
+	}
+
+	fmt.Print("Please enter email address: ")
+	email := getInput()
+	if email == "" {
+		email = c.EmailAddress
+	}
+
+	fmt.Print("Please enter phone number: ")
+	phoneNumber := getInput()
+	if phoneNumber == "" {
+		phoneNumber = c.PhoneNumber
+	}
+
+	newContact := models.Contact{
+		FirstName:    strings.ToLower(firstName),
+		LastName:     strings.ToLower(lastName),
+		EmailAddress: email,
+		PhoneNumber:  phoneNumber,
+	}
+
+	editContact(c, newContact)
 }
 
 func handleDelete(c models.Contact) {
 	printContact(c)
-	fmt.Println("Are you sure you wish to delete this contact? (Y)es/(N)o")
+	fmt.Println("\nAre you sure you wish to delete this contact? (Y)es/(N)o")
 	userChoice := getInput()
 	if strings.ToLower(string(userChoice[0])) == "y" {
 		removeFromContacts(c)
 	}
-	return
+	fmt.Println("Contact successfully deleted. Press enter to go back to the main menu.")
+	getInput()
+}
+
+func editContact(old, new models.Contact) {
+	for i, v := range contacts {
+		if v == old {
+			contacts[i] = new
+		}
+	}
+	saveToFile()
 }
 
 func removeFromContacts(c models.Contact) {
