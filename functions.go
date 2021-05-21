@@ -34,7 +34,7 @@ func AddContact() {
 func ViewContact() {
 	fmt.Println("Enter a full name to search for a specific contact")
 	fmt.Println("or enter a last name to search for matches")
-	fmt.Print("Please enter searchterm: ")
+	fmt.Print("Please enter search term: ")
 	contactName := getInput()
 	if len(strings.Split(contactName, " ")) == 2 {
 		searchSpecificContact(contactName)

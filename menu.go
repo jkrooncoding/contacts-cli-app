@@ -8,9 +8,9 @@ import (
 
 var menuItems map[string]models.Option = map[string]models.Option{
 	"1": add,
-	"2": placeHolder,
-	"3": view,
-	"4": placeHolder,
+	"2": view,
+	"3": edit,
+	"4": delete,
 }
 
 // menu prints out the program's main menu and all the possible

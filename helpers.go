@@ -14,7 +14,7 @@ import (
 // printHeader prints out the header for our Go Contacts program
 // including the description passed into it
 func printHeader(description string) {
-	fmt.Println(ascititle)
+	fmt.Println(asciiTitle)
 	fmt.Println("\t", strings.ToUpper(description))
 	fmt.Println("")
 }

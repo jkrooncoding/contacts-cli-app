@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-var ascititle string = `
+var asciiTitle string = `
  _____          _____             _             _       
 / ____|        / ____|           | |           | |      
 | |  __  ___   | |     ___  _ __ | |_ __ _  ___| |_ ___ 
