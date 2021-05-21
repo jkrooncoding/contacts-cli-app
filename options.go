@@ -22,7 +22,7 @@ var edit = models.Option{
 
 var delete = models.Option{
 	Description: "Delete a contact",
-	Function:    nil,
+	Function:    DeleteContact,
 }
 
 var placeHolder = models.Option{

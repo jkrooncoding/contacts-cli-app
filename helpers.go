@@ -100,7 +100,7 @@ func searchByLastName(name string) {
 	getInput()
 }
 
-func searchSpecificContact(name string) {
+func searchSpecificContact(name, option string) {
 	var match models.Contact
 	contactFirstName := strings.Split(name, " ")[0]
 	contactLastName := strings.Split(name, " ")[1]
@@ -111,9 +111,13 @@ func searchSpecificContact(name string) {
 	for _, c := range contacts {
 		if c.FirstName == contactFirstName && c.LastName == contactLastName {
 			match = c
-			printContact(match)
-			getInput()
-			return
+
+			switch option {
+			case "view":
+				handleView(match)
+			case "delete":
+				handleDelete(match)
+			}
 		} else {
 			continue
 		}
@@ -124,4 +128,30 @@ func searchSpecificContact(name string) {
 		getInput()
 		return
 	}
+}
+
+func handleView(c models.Contact) {
+	printContact(c)
+	getInput()
+	return
+}
+
+func handleDelete(c models.Contact) {
+	printContact(c)
+	fmt.Println("Are you sure you wish to delete this contact? (Y)es/(N)o")
+	userChoice := getInput()
+	if strings.ToLower(string(userChoice[0])) == "y" {
+		removeFromContacts(c)
+	}
+	return
+}
+
+func removeFromContacts(c models.Contact) {
+	for i, v := range contacts {
+		if v == c {
+			contacts = append(contacts[0:i], contacts[i+1:]...)
+		}
+	}
+
+	saveToFile()
 }

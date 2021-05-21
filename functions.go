@@ -37,8 +37,25 @@ func ViewContact() {
 	fmt.Print("Please enter search term: ")
 	contactName := getInput()
 	if len(strings.Split(contactName, " ")) == 2 {
-		searchSpecificContact(contactName)
+		searchSpecificContact(contactName, "view")
 	} else {
 		searchByLastName(contactName)
 	}
+}
+
+func EditContact() {
+	//fmt.Println("Enter the full name of the contact you wish to edit")
+	//fmt.Print("Enter contact's name: ")
+	//contactName := getInput()
+}
+
+func DeleteContact() {
+	fmt.Print("Enter the full name of the contact you wish to delete: ")
+	contactName := getInput()
+	if len(strings.Split(contactName, " ")) != 2 {
+		fmt.Println("We only got one name. Deletion of contact requires full name.")
+		getInput()
+		return
+	}
+	searchSpecificContact(contactName, "delete")
 }
