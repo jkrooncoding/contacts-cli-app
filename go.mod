@@ -1,4 +1,4 @@
-module personal/contactscli
+module github.com/jkrooncoding/contacts-cli-app
 
 go 1.16
 

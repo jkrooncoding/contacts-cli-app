@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"personal/contactscli/models"
+	"github.com/jkrooncoding/contacts-cli-app/models"
 )
 
 var add = models.Option{

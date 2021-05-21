@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	"personal/contactscli/models"
+	"github.com/jkrooncoding/contacts-cli-app/models"
 	"strings"
 	"time"
 
