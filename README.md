@@ -3,7 +3,7 @@
 ## A simple Go CLI app for managing contacts
 
 ### TODO
-..* Implement interfaces to reduce duplication
+* Implement interfaces to reduce duplication
 
 ## Info
 ### !! Heads up: this app writes a .json file to your system that holds the contacts !!
