@@ -2,11 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/jkrooncoding/contacts-cli-app/models"
 	"sort"
 )
 
-var menuItems map[string]models.Option = map[string]models.Option{
+var menuItems map[string]Option = map[string]Option{
 	"1": add,
 	"2": view,
 	"3": edit,
@@ -27,7 +26,7 @@ func printMenu() {
 
 // sortMenuItems adds the menuItems map to a slice of strings
 // then sorts the slice and returns it
-func sortMenuItems(menuItems map[string]models.Option) []string {
+func sortMenuItems(menuItems map[string]Option) []string {
 	keys := make([]string, 0)
 	for k := range menuItems {
 		keys = append(keys, k)

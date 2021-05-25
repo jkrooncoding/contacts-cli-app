@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	"github.com/jkrooncoding/contacts-cli-app/models"
 	"strings"
 	"time"
 
@@ -37,7 +36,7 @@ func quitProgram() {
 }
 
 // printContact prints a contact's information
-func printContact(c models.Contact) {
+func printContact(c Contact) {
 	fullName := strings.Join([]string{c.FirstName, c.LastName}, " ")
 	fmt.Println("Name:\t", strings.Title(fullName))
 	fmt.Println("Email:\t", c.EmailAddress)
@@ -65,8 +64,8 @@ func readContactsFromFile() {
 	}
 }
 
-func searchMatches(search string) []models.Contact {
-	var matches []models.Contact
+func searchMatches(search string) []Contact {
+	var matches []Contact
 
 	for _, c := range contacts {
 		if c.LastName == search {
@@ -101,7 +100,7 @@ func searchByLastName(name string) {
 }
 
 func searchSpecificContact(name, option string) {
-	var match models.Contact
+	var match Contact
 	contactFirstName := strings.Split(name, " ")[0]
 	contactLastName := strings.Split(name, " ")[1]
 
@@ -125,19 +124,19 @@ func searchSpecificContact(name, option string) {
 		}
 	}
 
-	if match == (models.Contact{}) {
+	if match == (Contact{}) {
 		fmt.Println("No contacts found. Please check your spelling.")
 		getInput()
 		return
 	}
 }
 
-func handleView(c models.Contact) {
+func handleView(c Contact) {
 	printContact(c)
 	getInput()
 }
 
-func handleEdit(c models.Contact) {
+func handleEdit(c Contact) {
 	printContact(c)
 
 	fmt.Println("\nPlease enter new information. Leave blank to use existing value.")
@@ -166,7 +165,7 @@ func handleEdit(c models.Contact) {
 		phoneNumber = c.PhoneNumber
 	}
 
-	newContact := models.Contact{
+	newContact := Contact{
 		FirstName:    strings.ToLower(firstName),
 		LastName:     strings.ToLower(lastName),
 		EmailAddress: email,
@@ -176,7 +175,7 @@ func handleEdit(c models.Contact) {
 	editContact(c, newContact)
 }
 
-func handleDelete(c models.Contact) {
+func handleDelete(c Contact) {
 	printContact(c)
 	fmt.Println("\nAre you sure you wish to delete this contact? (Y)es/(N)o")
 	userChoice := getInput()
@@ -187,7 +186,7 @@ func handleDelete(c models.Contact) {
 	getInput()
 }
 
-func editContact(old, new models.Contact) {
+func editContact(old, new Contact) {
 	for i, v := range contacts {
 		if v == old {
 			contacts[i] = new
@@ -196,7 +195,7 @@ func editContact(old, new models.Contact) {
 	saveToFile()
 }
 
-func removeFromContacts(c models.Contact) {
+func removeFromContacts(c Contact) {
 	for i, v := range contacts {
 		if v == c {
 			contacts = append(contacts[0:i], contacts[i+1:]...)

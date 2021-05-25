@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/jkrooncoding/contacts-cli-app/models"
 	"strings"
 )
 
@@ -16,7 +15,7 @@ func AddContact() {
 	fmt.Print("Please enter phone number: ")
 	phoneNumber := getInput()
 
-	newContact := models.Contact{
+	newContact := Contact{
 		FirstName:    strings.ToLower(firstName),
 		LastName:     strings.ToLower(lastName),
 		EmailAddress: email,

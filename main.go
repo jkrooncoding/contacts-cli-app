@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/jkrooncoding/contacts-cli-app/models"
 	"strings"
 )
 
@@ -14,7 +13,7 @@ var asciiTitle string = `
 | |__| | (_) | | |___| (_) | | | | || (_| | (__| |_\__ \
 \_____ |\___/   \_____\___/|_| |_|\__\__,_|\___|\__|___/`
 
-var contacts []models.Contact
+var contacts []Contact
 var quit bool = false
 
 func main() {
@@ -39,7 +38,7 @@ func main() {
 
 // runOption takes in a option and, clears the screen, prints the header with
 // the option's description and then runs its function
-func runOption(o models.Option) {
+func runOption(o Option) {
 	clearScreen()
 	printHeader(o.Description)
 	o.Function()
